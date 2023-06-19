@@ -24,7 +24,8 @@
 
 <body>
     <div id="app" class="container">
-        <i id="prevBtn" class="fas fa-arrow-up" @click="goPrev"></i>
+        <i id="prevBtn" class="fas fa-arrow-up" @click="goPrev" @mouseover="clearAutoplay"
+            @mouseleave="startAutoplay"></i>
         <h1>Scorri le foto</h1>
         <!-- Container di foto  -->
         <div id="gallery">
@@ -33,10 +34,12 @@
             <!-- thumbnails -->
             <div id="thumbnails">
                 <img v-for="(image, i) in images" :src="image.image" :alt="image.title"
-                    :class="{selected : isSelected(i)}" @click="setCurrentIndex(i)">
+                    :class="{selected : isSelected(i)}" @click="setCurrentIndex(i)" @mouseover="clearAutoplay"
+                    @mouseleave="startAutoplay">
             </div>
         </div>
-        <i id="nextBtn" class="fas fa-arrow-down" @click="goNext"></i>
+        <i id="nextBtn" class="fas fa-arrow-down" @click="goNext" @mouseover="clearAutoplay"
+            @mouseleave="startAutoplay"></i>
     </div>
     <script src="js/script.js"></script>
 </body>

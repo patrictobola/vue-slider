@@ -6,7 +6,7 @@ const { createApp } = Vue
     data() {
       return {
         currentIndex: 0,
-        
+        autoplay: null,
         images: [
             {
                 image: 'img/01.webp',
@@ -47,9 +47,15 @@ const { createApp } = Vue
         },
         setCurrentIndex(target) {
             this.currentIndex = target
+        },
+        clearAutoplay() {
+            clearInterval(this.autoplay);
+        },
+        startAutoplay() {
+            this.autoplay = setInterval(this.goNext, 2000)
         }
     },
     mounted(){
-        setInterval(this.goNext, 2000)
+        this.autoplay = setInterval(this.goNext, 2000)
     }
   }).mount('#app')
