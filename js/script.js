@@ -6,6 +6,7 @@ const { createApp } = Vue
     data() {
       return {
         currentIndex: 0,
+        
         images: [
             {
                 image: 'img/01.webp',
@@ -33,10 +34,13 @@ const { createApp } = Vue
     },
     methods: {
         goNext() {
-            currentIndex++
+            this.currentIndex !== this.images.length - 1 ? this.currentIndex++ : this.currentIndex = 0
         },
         goPrev() {
-            currentIndex--
+            this.currentIndex === 0 ? this.currentIndex = this.images.length - 1 : this.currentIndex--
+        },
+        isSelected(index) {
+            return index === this.currentIndex
         }
     }
   }).mount('#app')
