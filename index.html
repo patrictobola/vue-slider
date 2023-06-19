@@ -33,7 +33,7 @@
             <!-- thumbnails -->
             <div id="thumbnails">
                 <img v-for="(image, i) in images" :src="image.image" :alt="image.title"
-                    :class="{selected : isSelected(i)}">
+                    :class="{selected : isSelected(i)}" @click="setCurrentIndex(i)">
             </div>
         </div>
         <i id="nextBtn" class="fas fa-arrow-down" @click="goNext"></i>

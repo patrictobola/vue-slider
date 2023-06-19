@@ -32,6 +32,9 @@ const { createApp } = Vue
         ],
       }
     },
+    computed: {
+
+    },
     methods: {
         goNext() {
             this.currentIndex !== this.images.length - 1 ? this.currentIndex++ : this.currentIndex = 0
@@ -41,6 +44,9 @@ const { createApp } = Vue
         },
         isSelected(index) {
             return index === this.currentIndex
+        },
+        setCurrentIndex(target) {
+            this.currentIndex = target
         }
     }
   }).mount('#app')
